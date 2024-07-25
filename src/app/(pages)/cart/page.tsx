@@ -57,7 +57,7 @@ export default async function Cart() {
   }
 
   return (
-    <Fragment>
+    <div className={classes.container}>
       {!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY && (
         <Gutter>
           <Message
@@ -86,12 +86,12 @@ export default async function Cart() {
           />
         </Gutter>
       )}
-      <Hero {...page?.hero} />
       <Gutter>
+        <h3>Cart</h3>
         <CartPage settings={settings} page={page} />
       </Gutter>
-      <Blocks blocks={page?.layout} />
-    </Fragment>
+      <Blocks blocks={page?.layout} disableTopPadding />
+    </div>
   )
 }
 
