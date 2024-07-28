@@ -1,14 +1,16 @@
 'use client'
-import { Footer, Media } from '@/payload/payload-types'
 import React from 'react'
-
-import classes from './index.module.scss'
-import { inclusions, noHeaderFooterUrls } from '@/app/constants'
-import { usePathname } from 'next/navigation'
-import { Gutter } from '../../Gutter'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
 import { Button } from '../../Button'
+import { Gutter } from '../../Gutter'
+
+import { inclusions, noHeaderFooterUrls } from '@/app/constants'
+import { Footer, Media } from '@/payload/payload-types'
+
+import classes from './index.module.scss'
 
 const FooterComponent = ({ footer }: { footer: Footer }) => {
   const pathname = usePathname()
@@ -38,7 +40,7 @@ const FooterComponent = ({ footer }: { footer: Footer }) => {
             <Link href="/">
               <Image src="logo-white.svg" alt="logo" width={170} height={55} />
             </Link>
-            <p>{footer.copyright}</p>
+            <p>{footer?.copyright}</p>
             <div className={classes.socialLinks}>
               {navItems.map(item => {
                 const icon = item?.link?.icon as Media
